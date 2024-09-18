@@ -1,4 +1,4 @@
-package com.prueebas.prueba_seguridad.models;
+package com.prueebas.prueba_seguridad.models.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
