@@ -38,13 +38,6 @@ public class JwtGenerator {
         return claims.getSubject();
     }
 
-    public String getUserTypeFromJWT(String token) {
-        Claims claims = Jwts.parser()
-                .setSigningKey(SecurityConstants.JWT_SECERT)
-                .parseClaimsJws(token)
-                .getBody();
-        return claims.get("usertype").toString();
-    }
 
     public boolean validateToken(String token) {
         try {

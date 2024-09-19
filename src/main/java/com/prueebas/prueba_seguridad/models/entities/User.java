@@ -17,6 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "tbl_user")
 public class User {
+
+
     @Id
     @GeneratedValue
     private Long id;

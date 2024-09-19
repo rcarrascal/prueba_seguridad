@@ -2,6 +2,7 @@ package com.prueebas.prueba_seguridad.security;
 
 import com.prueebas.prueba_seguridad.models.dtos.UserDTO;
 import com.prueebas.prueba_seguridad.services.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
+@Slf4j
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
@@ -23,9 +25,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
+            log.info("Verificamos usuario " + username);
             UserDTO userDTO = userService.findByUsername(username);
-
+            log.info("Usuario obtenido " + userDTO.getUser());
             SimpleGrantedAuthority adminAuthority = new SimpleGrantedAuthority("ADMIN");
             Collection<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(adminAuthority);

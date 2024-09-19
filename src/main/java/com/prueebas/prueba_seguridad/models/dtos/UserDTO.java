@@ -11,10 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserDTO {
-    @JsonIgnore
+
     private String user;
 
-    @JsonIgnore
     private String pass;
 
     private String token;
